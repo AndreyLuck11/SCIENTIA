@@ -1,5 +1,11 @@
 export type PublicationsList = Publication[]
 
+export interface Filter {
+    filter_name: string;
+    filter_type: 'CharFilter' | 'NumberFilter' | 'BooleanFilter';
+    filter_client_name: string;
+}
+
 export interface Publication {
     id: number
     authors: Author[]

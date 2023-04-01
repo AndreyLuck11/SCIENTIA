@@ -46,7 +46,7 @@ urlpatterns = [
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/register/', register_user, name='register_user'),
     path('api/send-registration-code/', send_registration_code),
-    path('filters_info/publications/', FiltersInfoView.as_view(), name='filters-info'),
+    path('api/filters_info/publications/', FiltersInfoView.as_view(), name='filters-info'),
 ]
 
 if settings.DEBUG:

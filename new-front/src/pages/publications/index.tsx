@@ -1,6 +1,6 @@
 import React from 'react';
 import PublicationsList from "@/components/Publications/PublicationsList";
-import Filters from "@/components/Publications/Filters";
+import Filters from "@/components/Filters/Filters";
 import styles from "./PublicationsPage.module.scss"
 
 const PublicationsPage = () => {
