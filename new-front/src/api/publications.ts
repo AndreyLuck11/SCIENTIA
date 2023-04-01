@@ -1,8 +1,9 @@
 import {Publication, PublicationDetail} from "@/components/shared/interfaces";
-import {api} from "@/api/config";
+import { api, objectToQueryString } from "@/api/config";
 
-export async function fetchPublications(url: string, params: any): Promise<Publication[]> {
-    const response = await api.get(url);
+export async function fetchPublications(url: string, filterParams: any): Promise<Publication[]> {
+    const queryString = objectToQueryString(filterParams);
+    const response = await api.get(url, { searchParams: queryString });
     return response.json();
 }
 
