@@ -3,15 +3,18 @@ import useSWR from "swr";
 import { useAtom } from "jotai";
 import styles from "./modules/Filters.module.scss";
 import CharFilter from "@/components/Filters/CharFilter";
-import Search from "@/components/Filters/Search";
 import { Filter } from "@/components/shared/interfaces";
 import { fetchFilters } from "@/api/filters";
 import { filtersAtom } from "@/store/filterAtoms";
+import BooleanFilter from "@/components/Filters/BooleanFilter";
+import MultiSelectFilter from "@/components/Filters/MultiSelect";
 
 function FilterItem({ filter }: { filter: Filter }) {
-    if (filter.filter_name === "title") return <Search />;
-    if (filter.filter_type === "CharFilter" || filter.filter_type === "NumberFilter") {
+    if (filter.filter_type === "CustomCharFilter" || filter.filter_type === "NumberFilter") {
         return <CharFilter filter={filter} />;
+    }
+    if (filter.filter_type === 'BooleanFilter') {
+        return <BooleanFilter filter={filter} />;
     }
     return null;
 }
@@ -34,6 +37,7 @@ const Filters = function () {
         <div className={styles.filters}>
             {data &&
             data.map((filter: Filter) => <FilterItem key={filter.filter_name} filter={filter} />)}
+            <MultiSelectFilter/>
         </div>
     );
 };

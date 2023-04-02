@@ -1,6 +1,10 @@
 import { atom, useAtom } from 'jotai';
 
-const filtersAtom = atom({});
+export interface FiltersAtomInterface {
+  [key: string]: boolean | string;
+}
+
+const filtersAtom = atom<FiltersAtomInterface>({});
 
 const updateFilterAtom = atom(
     null,

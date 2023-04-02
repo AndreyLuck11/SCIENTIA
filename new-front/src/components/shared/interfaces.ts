@@ -2,7 +2,7 @@ export type PublicationsList = Publication[]
 
 export interface Filter {
     filter_name: string;
-    filter_type: 'CharFilter' | 'NumberFilter' | 'BooleanFilter';
+    filter_type: "CustomCharFilter" | 'NumberFilter' | 'BooleanFilter';
     filter_client_name: string;
 }
 

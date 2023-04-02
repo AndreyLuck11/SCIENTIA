@@ -6,6 +6,7 @@ import { Publication } from "@/components/shared/interfaces";
 import PublicationCard from "@/components/Publications/PublicationCard";
 import { filtersAtom } from "@/store/filterAtoms";
 import { useDebounce } from "@/hooks/useDebounce";
+import styles from './PublicationList.module.scss'
 
 function PublicationsList() {
 
@@ -18,10 +19,10 @@ function PublicationsList() {
         { revalidateIfStale: false }
     );
 
-    if (isLoading) return null;
-    if (error) return null;
+    if (isLoading && !data) return null;
+    if (error && !data) return null;
     return (
-        <div className="publication__list">
+        <div className={styles.publication__list}>
             {data?.map((item) => <PublicationCard key={item.id} publication={item} />)
             }
         </div>
