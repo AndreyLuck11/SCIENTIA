@@ -1,7 +1,7 @@
 import { atom, useAtom } from 'jotai';
 
 export interface FiltersAtomInterface {
-  [key: string]: boolean | string;
+  [key: string]: boolean | string | any[];
 }
 
 const filtersAtom = atom<FiltersAtomInterface>({});

@@ -2,7 +2,7 @@ from abc import ABC
 
 from rest_framework import serializers
 
-from publications.models import Publication
+from publications.models import Publication, Category
 from users.models import CustomUser
 
 
@@ -48,3 +48,9 @@ class FiltersInfoSerializer(serializers.Serializer):
     filter_name = serializers.CharField()
     filter_type = serializers.CharField()
     filter_client_name = serializers.CharField()
+
+
+class CategoriesListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'name')

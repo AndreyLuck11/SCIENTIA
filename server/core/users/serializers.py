@@ -12,9 +12,8 @@ class UserPublicationSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    publication_list = UserPublicationSerializer(many=True, read_only=True)
 
     class Meta:
         ref_name = "User 1"
         model = CustomUser
-        fields = ('id', 'last_name', 'first_name', 'patronymic', 'fio', 'email', 'username', 'publication_list', 'avatar_url')
+        fields = ('id', 'last_name', 'first_name', 'patronymic', 'fio', 'email', 'username', 'avatar_url')

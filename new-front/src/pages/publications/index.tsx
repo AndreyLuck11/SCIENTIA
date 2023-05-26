@@ -3,7 +3,7 @@ import PublicationsList from "@/components/Publications/PublicationsList";
 import Filters from "@/components/Filters/Filters";
 import styles from "./PublicationsPage.module.scss"
 
-const PublicationsPage = () => {
+function PublicationsPage() {
 
     return (
         <div className={styles.publicationPage}>
@@ -15,6 +15,6 @@ const PublicationsPage = () => {
             </div>
         </div>
     );
-};
+}
 
 export default PublicationsPage;

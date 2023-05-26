@@ -3,13 +3,32 @@ import useSWR from "swr";
 import { useAtom } from "jotai";
 import styles from "./modules/Filters.module.scss";
 import CharFilter from "@/components/Filters/CharFilter";
-import { Filter } from "@/components/shared/interfaces";
+import { Filter, UserListItem } from "@/components/shared/interfaces";
 import { fetchFilters } from "@/api/filters";
 import { filtersAtom } from "@/store/filterAtoms";
 import BooleanFilter from "@/components/Filters/BooleanFilter";
-import MultiSelectFilter from "@/components/Filters/MultiSelect";
+import MultiSelectFilter from "@/components/Filters/MultiSelectFilter";
 
 function FilterItem({ filter }: { filter: Filter }) {
+
+    if (filter.filter_name === "authors") {
+        const { data: users } = useSWR("api/users/");
+        const publicationsAuthorsFilterArgs: any = [];
+        if (users) {
+            users.forEach((user: UserListItem) => publicationsAuthorsFilterArgs.push({ label: user.fio, value: user.id}));
+        }
+        return <MultiSelectFilter options={publicationsAuthorsFilterArgs} filterName={filter.filter_name} filterClientName={filter.filter_client_name}/>
+    }
+
+    if (filter.filter_name === "cat") {
+        const { data: categories } = useSWR("api/categories/");
+        const categoriesFilterArgs: any = [];
+        if (categories) {
+            categories.forEach((category: any) => categoriesFilterArgs.push({ label: category.name, value: category.id}));
+        }
+        return <MultiSelectFilter options={categoriesFilterArgs} filterName={filter.filter_name} filterClientName={filter.filter_client_name}/>
+    }
+
     if (filter.filter_type === "CustomCharFilter" || filter.filter_type === "NumberFilter") {
         return <CharFilter filter={filter} />;
     }
@@ -26,7 +45,6 @@ const Filters = function () {
         ([url]: [string]) => fetchFilters(url),
         { revalidateIfStale: false }
     );
-
     useEffect(() => {
         console.log(filterStat)
     }, [filterStat])
@@ -37,7 +55,6 @@ const Filters = function () {
         <div className={styles.filters}>
             {data &&
             data.map((filter: Filter) => <FilterItem key={filter.filter_name} filter={filter} />)}
-            <MultiSelectFilter/>
         </div>
     );
 };

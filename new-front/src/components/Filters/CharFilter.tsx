@@ -26,7 +26,7 @@ function CharFilter({ filter }: CharFilterProps) {
     };
 
     return (
-        <div>
+        <div className={styles.filtersInput}>
             <input
                 type={
                     filter.filter_type === 'NumberFilter' && filter.filter_name !== 'cat'
@@ -34,7 +34,6 @@ function CharFilter({ filter }: CharFilterProps) {
                         : 'text'
                 }
                 placeholder={filter.filter_client_name}
-                className={styles.filtersInput}
                 onChange={handleChange}
                 value={inputValue}
             />

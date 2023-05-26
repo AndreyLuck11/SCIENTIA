@@ -21,7 +21,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import routers, permissions
 from django.conf import settings
 from django.conf.urls.static import static
-from publications.views import PublicationsViewSet, FiltersInfoView
+from publications.views import PublicationsViewSet, FiltersInfoView, CategoriesViewSet
 from users.views import UserViewSet, send_registration_code, register_user
 
 schema_view = get_schema_view(
@@ -36,6 +36,7 @@ schema_view = get_schema_view(
 router = routers.SimpleRouter()
 router.register(r'publications', PublicationsViewSet)
 router.register(r'users', UserViewSet)
+router.register(r'categories', CategoriesViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

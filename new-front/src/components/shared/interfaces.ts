@@ -1,5 +1,21 @@
 export type PublicationsList = Publication[]
 
+export interface UserListItem {
+    id: number;
+    last_name: string;
+    first_name: string;
+    patronymic: string;
+    fio: string;
+    email: string;
+    username: string;
+    avatar_url: string | null;
+}
+
+export interface MultSelectFilterOption {
+    label: string;
+    value: any;
+}
+
 export interface Filter {
     filter_name: string;
     filter_type: "CustomCharFilter" | 'NumberFilter' | 'BooleanFilter';
