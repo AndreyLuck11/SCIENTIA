@@ -12,8 +12,17 @@ class UserPublicationSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         ref_name = "User 1"
         model = CustomUser
-        fields = ('id', 'last_name', 'first_name', 'patronymic', 'fio', 'email', 'username', 'avatar_url')
+        fields = (
+            'id', 'last_name', 'first_name', 'patronymic', 'fio', 'email', 'username', 'avatar_url', "position",
+            'wos_id',
+            'scorpus_auth_id', 'orcid', 'spin_kod', 'rinc_auth_id')
+
+
+class UsersListSerializer(serializers.ModelSerializer):
+    class Meta:
+        ref_name = "User 1"
+        model = CustomUser
+        fields = ('id', 'last_name', 'first_name', 'patronymic', 'fio', 'avatar_url', "position")

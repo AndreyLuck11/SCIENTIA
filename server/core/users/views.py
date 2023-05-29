@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.viewsets import GenericViewSet
 
 from users.models import CustomUser, RegistrationCode
-from users.serializers import UserSerializer
+from users.serializers import UserSerializer, UsersListSerializer
 from django.http import JsonResponse
 from django.utils import timezone
 import smtplib
@@ -76,5 +76,10 @@ class UserViewSet(mixins.RetrieveModelMixin,
                   mixins.DestroyModelMixin,
                   mixins.ListModelMixin,
                   GenericViewSet):
-    serializer_class = UserSerializer
+    serializer_classes = {
+        'list': UsersListSerializer,
+    }
+    def get_serializer_class(self):
+        return self.serializer_classes.get(self.action, self.default_serializer_class)
+    default_serializer_class = UserSerializer
     queryset = CustomUser.objects.all()

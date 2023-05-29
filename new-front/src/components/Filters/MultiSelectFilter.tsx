@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { useAtom } from "jotai/index";
+import { useAtom } from "jotai";
 import styles from "./modules/MultiSelectFilter.module.scss";
 import checkBoxStyles from "./modules/BooleanField.module.scss";
 import { MultSelectFilterOption } from "@/components/shared/interfaces";

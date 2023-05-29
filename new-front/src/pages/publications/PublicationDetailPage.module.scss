@@ -1,5 +1,5 @@
 .publicationPage {
-
+  padding-bottom: 10px;
   .infoItem {
     font-style: normal;
     font-weight: 400;
@@ -14,16 +14,21 @@
     }
   }
 
+  .MainInfo {
+    flex: 1 1 auto;
+  }
+
   .splitter {
     display: flex;
+    justify-content: space-between;
   }
 
   .authors {
     width: 250px;
-    margin-left: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     p {
       font-weight: 400;
       font-size: 15px;
@@ -52,6 +57,41 @@
     img {
       object-fit: cover;
     }
+  }
+
+  .activeButtons {
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 7px 10px;
+    button {
+      height: 30px;
+      width: 30px;
+      background-color: var(--main-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      img {
+        max-width: 18px;
+        max-height: 18px;
+      }
+    }
+  }
+
+  .actions {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .otherInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 
   .authorItem {

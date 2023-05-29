@@ -1,11 +1,14 @@
 import React from 'react';
+import styles from "./index.module.scss"
 
-const Index = () => {
+function Index() {
     return (
-        <div>
-            <h1>Тут пока-что ничего нет, но будут новости и много полезной информации</h1>
+        <div className="container">
+            <div className={styles.HomePage}>
+                <h1>Страница находится в разработке!</h1>
+            </div>
         </div>
     );
-};
+}
 
 export default Index;

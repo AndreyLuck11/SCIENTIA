@@ -1,0 +1,24 @@
+.AuthorCard {
+  min-height: 88px;
+  width: 95%;
+  padding: 7px 20px;
+  background: #FFFFFF;
+  mix-blend-mode: normal;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  .AuthorCardImg {
+    height: 74px;
+    width: 74px;
+    position: relative;
+    border-radius: 50%;
+    overflow: auto;
+    flex: 1 0 auto;
+    max-width: 74px;
+  }
+}
+
+

@@ -1,0 +1,37 @@
+.LoginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+
+  h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .Form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  input {
+    padding: 10px 15px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 380px;
+    height: 41px;
+
+  }
+
+  button {
+    background: var(--main-color);
+    border-radius: 10px;
+    width: 380px;
+    height: 41px;
+    color: white;
+  }
+}

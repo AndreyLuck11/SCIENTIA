@@ -27,15 +27,15 @@ class PublicationFilter(django_filters.FilterSet):
     publication_year = CustomCharFilter(method='filter_publication_year')
     cat = CustomCharFilter(method='filter_cat')
     authors = django_filters.BaseInFilter(field_name='authors__id')
-    isWoS_CC = django_filters.BooleanFilter(method='filter_by_boolean_fields', label='WoS CC')
-    isScopus = django_filters.BooleanFilter(method='filter_by_boolean_fields', label='Scopus')
-    isRINC = django_filters.BooleanFilter(method='filter_by_boolean_fields', label='RINC')
+    WoS_CC = django_filters.BooleanFilter(method='filter_by_boolean_fields')
+    Scopus = django_filters.BooleanFilter(method='filter_by_boolean_fields')
+    RINC = django_filters.BooleanFilter(method='filter_by_boolean_fields')
 
     class Meta:
         model = Publication
         fields = [
             'title', 'keywords', 'publication_year', 'cat', 'authors',
-            'isWoS_CC', 'isScopus', 'isRINC'
+            'WoS_CC', 'Scopus', 'RINC'
         ]
 
     def filter_by_boolean_fields(self, queryset, name, value):
@@ -58,11 +58,11 @@ class PublicationFilter(django_filters.FilterSet):
         return queryset
 
     def filter_by_boolean_fields(self, queryset, name, value):
-        if name == 'isWoS_CC':
+        if name == 'WoS_CC':
             lookup = 'WoS_CC__exact'
-        elif name == 'isScopus':
+        elif name == 'Scopus':
             lookup = 'scopus__exact'
-        elif name == 'isRINC':
+        elif name == 'RINC':
             lookup = 'RINC__exact'
         else:
             raise ValueError(f"Unknown boolean field: {name}")
