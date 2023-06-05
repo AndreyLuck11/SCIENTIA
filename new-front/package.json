@@ -14,6 +14,7 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "formik": "^2.4.1",
     "jotai": "^2.0.3",
     "ky": "^0.33.3",
     "ky-universal": "^0.11.0",

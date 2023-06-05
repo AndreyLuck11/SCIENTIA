@@ -63,7 +63,7 @@ address {
 
 /* Form */
 
-input, textarea, button, select {
+input, input, button, select {
     font-family: inherit;
     font-size: inherit;
     color: inherit;

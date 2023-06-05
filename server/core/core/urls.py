@@ -23,14 +23,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from publications.views import PublicationsViewSet, FiltersInfoView, CategoriesViewSet
 from users.views import UserViewSet, send_registration_code, register_user
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Snippets API",
-      default_version='v1',
-      description="Test description",
-   ),
-   public=True,
+    openapi.Info(
+        title="Snippets API",
+        default_version='v1',
+        description="Test description",
+    ),
+    public=True,
 )
 
 router = routers.SimpleRouter()
@@ -48,6 +52,8 @@ urlpatterns = [
     path('api/register/', register_user, name='register_user'),
     path('api/send-registration-code/', send_registration_code),
     path('api/filters_info/publications/', FiltersInfoView.as_view(), name='filters-info'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 if settings.DEBUG:

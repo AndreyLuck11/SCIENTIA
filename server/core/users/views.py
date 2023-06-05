@@ -14,8 +14,8 @@ def send_email_with_code(email, code):
     # Настройки SMTP-сервера и учетных данных
     smtp_server = 'smtp.ethereal.email'
     smtp_port = 587
-    smtp_user = 'myra76@ethereal.email'
-    smtp_password = 'yb7dngrpmVC1s753bc'
+    smtp_user = 'delbert76@ethereal.email'
+    smtp_password = '2eZwd16w5RERQsW4fP'
 
     # Формируем сообщение
     message = MIMEText(f'Your registration code is {code}')

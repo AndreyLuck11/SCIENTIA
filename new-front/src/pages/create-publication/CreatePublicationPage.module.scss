@@ -1,0 +1,19 @@
+.CreatePublicationPage {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  input {
+    padding: 10px 15px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 380px;
+    height: 41px;
+  }
+  .FormField {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

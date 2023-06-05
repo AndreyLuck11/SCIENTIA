@@ -27,6 +27,7 @@ class Publication(models.Model):
     WoS_CC = models.BooleanField(default=False, verbose_name='Индексация базой данных Web of Science Core Collection')
     scopus = models.BooleanField(default=False, verbose_name='Индексация базой данных Scopus')
     RINC = models.BooleanField(default=False, verbose_name='Индексация базой данных РИНЦ')
+    # пофиксить
     elib_ID = models.PositiveIntegerField(blank=True, verbose_name='eLIBRARY ID')
     if_index_export = models.TextField(blank=True, verbose_name='Индексация иными зарубежными базами данных')
     date_publ = models.DateField(default=timezone.now, verbose_name='Месяц и год публикации')

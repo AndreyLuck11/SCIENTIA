@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'publications.apps.PublicationsConfig',
     'users.apps.UsersConfig',
     'rest_framework',
+    'djoser',
     # 'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
     'drf_yasg',
     'corsheaders',
@@ -60,7 +61,9 @@ CORS_ALLOWED_ORIGINS = ['http://localhost:3001', 'http://localhost:3000']
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': []
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 ROOT_URLCONF = 'core.urls'
