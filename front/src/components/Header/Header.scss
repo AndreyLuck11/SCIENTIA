@@ -1,0 +1,42 @@
+.header {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  .textItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex: 20%;
+  }
+  .textItem a{
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: capitalize;
+  }
+
+  .logo a {
+    color: #1E1BA0;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    text-transform: uppercase;
+  }
+  .logo {
+    flex: 0 0 20%;
+    display: inline-flex;
+    justify-content: flex-start;
+  }
+}

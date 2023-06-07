@@ -2,13 +2,15 @@ from requests import Response
 from rest_framework import viewsets, mixins
 from rest_framework.decorators import api_view
 from rest_framework.viewsets import GenericViewSet
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 from users.models import CustomUser, RegistrationCode
-from users.serializers import UserSerializer, UsersListSerializer
+from users.serializers import UserSerializer, UsersListSerializer, MyTokenObtainPairSerializer
 from django.http import JsonResponse
 from django.utils import timezone
 import smtplib
 from email.mime.text import MIMEText
+
 
 def send_email_with_code(email, code):
     # Настройки SMTP-сервера и учетных данных
@@ -79,7 +81,13 @@ class UserViewSet(mixins.RetrieveModelMixin,
     serializer_classes = {
         'list': UsersListSerializer,
     }
+
     def get_serializer_class(self):
         return self.serializer_classes.get(self.action, self.default_serializer_class)
+
     default_serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
+
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer

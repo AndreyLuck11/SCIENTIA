@@ -1,0 +1,65 @@
+.MultiSelectFilter {
+  border: 2px solid #1E1BA0;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  flex: auto;
+  margin-bottom: 10px;
+}
+.multiSelect {
+  width: auto;
+  position: relative;
+}
+
+//.MultiSelectFilterButton {
+//  margin-bottom: 10px;
+//}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chip {
+  background-color: #ccc;
+  border-radius: 16px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.removeBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.filterInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.options {
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.option {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: #eee;
+  }
+}

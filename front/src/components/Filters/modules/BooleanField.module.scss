@@ -1,0 +1,18 @@
+.booleanFilter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.booleanFilterBox {
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-right: 5px;
+}
+
+.booleanFilterBoxActive {
+  background-color: #1E1BA0;
+}

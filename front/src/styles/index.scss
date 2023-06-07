@@ -1,0 +1,43 @@
+@import url("./reset.css");
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+
+  *::-webkit-scrollbar:hover {
+    border-radius: 10px;
+    background-color: var(--accent-color);
+
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1E1BA0;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    color: var(--);
+    border-radius: 10px;
+  }
+
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+body {
+  background: #e4e4e4;
+  --main-color: #1E1BA0;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
