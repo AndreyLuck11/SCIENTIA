@@ -39,6 +39,7 @@ export interface Author {
     email: string;
     username: string;
     avatar_url: string;
+    position: string
 }
 
 export interface AuthorDetail {

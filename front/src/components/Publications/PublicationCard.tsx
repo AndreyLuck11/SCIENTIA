@@ -1,13 +1,15 @@
 import Link from "next/link";
-
 import styles from './PublicationCard.module.scss'
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { Publication } from "@/interfaces/interfaces";
 
 interface PublicationCardProps {
     publication: Publication
 }
 const PublicationCard = ({publication}: PublicationCardProps) => {
+
+    const router = useRouter();
+
     return (
         <div className={styles.publication_card} onClick={() => {router.push(`/publications/${publication.id}`)}}>
             <div className={styles.topContent}>

@@ -3,6 +3,20 @@
   display: inline-flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
+
+  &__menu-container {
+    padding-top: 90px;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &:hover {
+    .login-button__menu-container {
+      visibility: visible;
+    }
+  }
+
   &__avatar {
     width: 30px;
     height: 30px;

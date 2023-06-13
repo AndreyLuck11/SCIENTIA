@@ -1,0 +1,53 @@
+.AuthorDetailPage {
+
+  .Avatar {
+     width: 100px;
+     height: 100px;
+      overflow: auto;
+      img {
+        border-radius: 50%;
+      }
+  }
+
+  .FIO {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .MainInfo {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .patronymic {
+
+  }
+
+  .otherInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .infoItem {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: black;
+    span {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}

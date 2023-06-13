@@ -12,6 +12,7 @@ import { useAtom } from 'jotai'
 import { LoginUserInfo } from "@/interfaces/LoginUserInfo";
 import { useRouter } from "next/navigation";
 import store from "store2"
+import Cookies from "js-cookie";
 
 
 function LoginForm () {
@@ -34,6 +35,8 @@ function LoginForm () {
 					setUserInfo(decodedToken as LoginUserInfo);
 					store("refresh", tokens.refresh);
 					store("access", tokens.access);
+					Cookies.set("refresh_token", tokens.refresh)
+					Cookies.set("access_token", tokens.access)
 					router.push('/');
 				}
 			} catch (e: any) {

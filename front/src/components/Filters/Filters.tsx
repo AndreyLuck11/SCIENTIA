@@ -19,7 +19,7 @@ function FilterItem({ filter }: { filter: Filter }) {
         if (users) {
             users.forEach((user: UserListItem) => publicationsAuthorsFilterArgs.push({ label: user.fio, value: user.id}));
         }
-        return <MultiSelectFilter options={publicationsAuthorsFilterArgs} filterName={filter.filter_name} filterClientName={filter.filter_client_name}/>
+        return <MultiSelectFilter filterAtom={filtersAtom} options={publicationsAuthorsFilterArgs} filterName={filter.filter_name} filterClientName={filter.filter_client_name}/>
     }
 
     if (filter.filter_name === "cat") {
@@ -28,14 +28,14 @@ function FilterItem({ filter }: { filter: Filter }) {
         if (categories) {
             categories.forEach((category: any) => categoriesFilterArgs.push({ label: category.name, value: category.id}));
         }
-        return <MultiSelectFilter options={categoriesFilterArgs} filterName={filter.filter_name} filterClientName={filter.filter_client_name}/>
+        return <MultiSelectFilter filterAtom={filtersAtom} options={categoriesFilterArgs} filterName={filter.filter_name} filterClientName={filter.filter_client_name}/>
     }
 
     if (filter.filter_type === "CustomCharFilter" || filter.filter_type === "NumberFilter") {
         return <CharFilter filter={filter} />;
     }
     if (filter.filter_type === 'BooleanFilter') {
-        return <BooleanFilter filter={filter} />;
+        return <BooleanFilter filterAtom={filtersAtom} filter={filter} />;
     }
     return null;
 }

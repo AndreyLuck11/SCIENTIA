@@ -1,29 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { useAtom } from 'jotai';
-import { filtersAtom, FiltersAtomInterface, useHandleFilterChange } from "@/store/filterAtoms";
+import { useAtom, Atom } from 'jotai';
+import {FiltersAtomInterface, useHandleFilterChange } from "@/store/filterAtoms";
 import styles from './modules/BooleanField.module.scss'
-
 
 interface BooleanFilterProps {
     filter: {
         filter_name: string;
         filter_client_name: string;
     };
+    filterAtom?: Atom<FiltersAtomInterface>;
+    onFilterChange?: (filterName: string, newValue: boolean) => void;
 }
 
-function BooleanFilter({ filter }: BooleanFilterProps) {
+function BooleanFilter({ filter, filterAtom, onFilterChange }: BooleanFilterProps) {
     const handleFilterChange = useHandleFilterChange();
-    const [filters] = useAtom<FiltersAtomInterface>(filtersAtom);
+    const [filters, setFilters] =
+        filterAtom ? useAtom<FiltersAtomInterface>(filterAtom) : useState<FiltersAtomInterface>({});
     const [filterValue, setFilterValue] = useState(false);
 
     useEffect(() => {
-        setFilterValue(!!filters[filter.filter_name]);
-    }, [filters, filter.filter_name, handleFilterChange]);
+        if (Object.prototype.hasOwnProperty.call(filters, filter.filter_name)) {
+            setFilterValue(!!filters[filter.filter_name]);
+        }
+    }, [filters, filter.filter_name]);
 
     const handleClick = () => {
         const newValue = !filterValue;
         setFilterValue(newValue);
-        handleFilterChange(filter.filter_name, newValue);
+        if (filterAtom) {
+            handleFilterChange(filter.filter_name, newValue);
+        } else {
+            setFilters((prevFilters) => ({ ...prevFilters, [filter.filter_name]: newValue }));
+            if (onFilterChange) {
+                onFilterChange(filter.filter_name, newValue);
+            }
+        }
     };
 
     return (

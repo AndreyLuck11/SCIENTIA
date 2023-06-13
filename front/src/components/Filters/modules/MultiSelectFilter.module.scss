@@ -1,11 +1,20 @@
 .MultiSelectFilter {
   border: 2px solid #1E1BA0;
+  background-color: #FFFFFF;
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;
   outline: none;
   flex: auto;
   margin-bottom: 10px;
+  input {
+    border-radius: 0;
+    margin-bottom: 4px;
+  }
+}
+.MultiSelectFilter_nb {
+  @extend .MultiSelectFilter;
+  border: none;
 }
 .multiSelect {
   width: auto;

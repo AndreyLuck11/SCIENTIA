@@ -15,5 +15,11 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    &__boolean {
+      flex-direction: row;
+      label {
+        flex: 80%
+      }
+    }
   }
 }

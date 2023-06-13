@@ -1,13 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8000',
-      },
-    ],
+  images : {
+    domains : ['localhost', '127.0.0.1'],
+    minimumCacheTTL: 60,
   },
   webpack(config) {
     config.experiments = { ...config.experiments, topLevelAwait: true }

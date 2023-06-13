@@ -8,6 +8,7 @@ import store from "store2"
 import jwt_decode from 'jwt-decode';
 import { LoginUserInfo } from "@/interfaces/LoginUserInfo";
 import { useEffect, useLayoutEffect } from "react";
+import UserMenu from "@/components/UserMenu/UserMenu";
 
 function LoginButton() {
 	const router = useRouter();
@@ -33,7 +34,9 @@ function LoginButton() {
 					<div className="SignIn">
 						{userInfo.last_name} {userInfo.first_name[0]}. {userInfo.patronymic[0]}.
 					</div>
-
+					<div className="login-button__menu-container">
+						<UserMenu/>
+					</div>
 				</div>
 				:
 				<div className="login-button">
